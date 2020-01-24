@@ -1,0 +1,56 @@
+<div id="root"></div>
+<script
+  src="https://unpkg.com/react@16/umd/react.production.min.js"
+  crossorigin
+></script>
+<script
+  src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"
+  crossorigin
+></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+<script src="https://unpkg.com/prop-types@15.6/prop-types.min.js"></script>
+<script type="text/babel">
+  const state = { eventCount: 0, username: " " };
+  function App() {
+    return (
+      <div>
+        <p>there have been{state.eventCount} events </p>
+        <p>
+          <button
+            onMouseOver={increment}
+            //onClick={() => setState({ eventCount: state.eventCount + 1 })}
+          >
+            press
+          </button>
+        </p>
+        <p>you typed:{state.username}</p>
+        <p>
+          <input
+            //onBlur={updateUserName}
+            onChange={event => setState({ username: event.target.value })}
+          />
+        </p>
+      </div>
+    );
+  }
+  function increment() {
+    setState({ eventCount: state.eventCount + 1 });
+  }
+  /*function updateUserName(event) {
+    setState({
+      username: event.target.value
+    });
+  }*/
+  //setState({ eventCount: 10 });
+  //setState({ username: "sravs" });
+  function setState(newState) {
+    Object.assign(state, newState);
+    renderApp();
+  }
+
+  function renderApp() {
+    ReactDOM.render(<App />, document.getElementById("root"));
+  }
+  renderApp();
+</script>

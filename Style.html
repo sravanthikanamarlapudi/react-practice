@@ -1,0 +1,182 @@
+<div id="root"></div>
+<script
+  src="https://unpkg.com/react@16/umd/react.production.min.js"
+  crossorigin
+></script>
+<script
+  src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"
+  crossorigin
+></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+<style>
+  .box {
+    height: 20px;
+    width: 20px;
+    border-style: solid;
+    padding: 50px;
+    margin: 40px;
+  }
+
+  .box--small {
+    width: 20px;
+    height: 20px;
+  }
+  .box--medium {
+    width: 300px;
+    height: 40px;
+  }
+  .box--big {
+    width: 200px;
+    height: 60px;
+  }
+</style>
+<script type="text/babel">
+  function Box({ style, size, className = "", ...rest }) {
+    const sizeClassName = size ? `box--${size}` : ``;
+
+    return (
+      <div
+        className={`box ${className} ${sizeClassName}`}
+        style={{ paddingLeft: 20, ...style }}
+        {...rest}
+      />
+    );
+  }
+  const element = (
+    <div>
+      <Box size="small" style={{ backgroundColor: "lightblue" }}>
+        small box
+      </Box>
+      <Box size="medium" style={{ backgroundColor: "pink" }}>
+        box
+      </Box>
+      <Box size="big" style={{ backgroundColor: "green" }}>
+        big box
+      </Box>
+      <Box className="small" style={{ backgroundColor: "red" }}>
+        small box
+      </Box>
+    </div>
+  );
+  /*function Box({ style, ...rest }) {
+    return (
+      <div
+        className="box box--small"
+        style={{ paddingLeft: 20, ...style }}
+        {...rest}
+      />
+    );
+  }
+  const element = (
+    <div>
+      <Box style={{ backgroundColor: "lightblue" }}>small box</Box>
+    </div>
+  );*/
+  /*function Box(props) {
+    return (
+      <div className="box box--small" style={{ paddingLeft: 20 }} {...props} />
+    );
+  }
+  const element = (
+    <div>
+      <Box style={{ backgroundColor: "lightblue" }}>small box</Box>
+    </div>
+  );*/
+
+  /*const className = "box box--small";
+  const props = {
+    className,
+    //className: "box box--small",
+    style: { paddingLeft: 20 }
+  };
+  const element = (
+    <div>
+      <div {...props}>box</div>
+    </div>
+  );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /*function Box({ style, className = "", ...rest }) {
+    return (
+      <div
+        className={`box ${className}`.trim()}
+        style={{ paddingLeft: 20, ...style }}
+        {...rest}
+      />
+    );
+  }
+  const element = (
+    <div>
+      <Box className="box--small" style={{ backgroundColor: "lightblue" }}>
+        small box
+      </Box>
+      <Box className="box--medium" style={{ backgroundColor: "pink" }}>
+        box
+      </Box>
+      <Box className="box--big" style={{ backgroundColor: "green" }}>
+        big box
+      </Box>
+      <Box className="box--small" style={{ backgroundColor: "red" }}>
+        small box
+      </Box>
+    </div>
+  );*/
+  /*function Box({ style, ...rest }) {
+    return (
+      <div
+        className="box box--small"
+        style={{ paddingLeft: 20, ...style }}
+        {...rest}
+      />
+    );
+  }
+  const element = (
+    <div>
+      <Box style={{ backgroundColor: "lightblue" }}>small box</Box>
+    </div>
+  );*/
+  /*function Box(props) {
+    return (
+      <div className="box box--small" style={{ paddingLeft: 20 }} {...props} />
+    );
+  }
+  const element = (
+    <div>
+      <Box style={{ backgroundColor: "lightblue" }}>small box</Box>
+    </div>
+  );*/
+
+  /*const className = "box box--small";
+  const props = {
+    className,
+    //className: "box box--small",
+    style: { paddingLeft: 20 }
+  };
+  const element = (
+    <div>
+      <div {...props}>box</div>
+    </div>
+  );*/
+
+  /* const element = (
+    <div>
+      <div className="box box--small" style={{ paddingLeft: 20 }}>
+        put in box.
+      </div>
+    </div>
+  );*/
+  ReactDOM.render(element, document.getElementById("root"));
+</script>

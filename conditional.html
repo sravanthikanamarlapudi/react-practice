@@ -1,0 +1,66 @@
+<div id="root"></div>
+<body>
+  <script
+    src="https://unpkg.com/react@16/umd/react.production.min.js"
+    crossorigin
+  ></script>
+  <script
+    src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"
+    crossorigin
+  ></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <script src="https://unpkg.com/prop-types@15.6/prop-types.min.js"></script>
+  <script type="text/babel">
+    class SayHello extends React.Component {
+      static propTypes = {
+        firstName: PropTypes.string.isRequired,
+        lastName: PropTypes.string.isRequired
+      };
+
+      render() {
+        const { firstName, lastName } = this.props;
+        return (
+          <div>
+            hello{firstName}
+            {lastName}!
+          </div>
+        );
+      }
+    }
+
+    /*function SayHello(props) {
+      return (
+        <div>
+          Hello{props.firstName} {props.lastName || "unknown"}!
+        </div>
+      );
+    }*/
+    /*    const propTypes={
+    string(props,propName,componentName)
+    {
+        if(typeof props[propName]!=='string')
+        {
+            return new Error(
+                'hey ,you should pass a string for ${propName} in ${componentName} but you passed a${typeof props[propName]}!
+      )
+        }!)
+    }
+}*/
+    /*sayHello.propType=document{
+firstName(props,propName,componentName){
+    if(typeof props[propName]!=='string')
+    {
+        return new Error('hey you should pass a string for ${propName}in ${}}
+}*/
+    /*SayHello.propTypes = {
+      firstName: PropTypes.string.isRequired,
+      lastName: PropTypes.string.isRequired
+    };*/
+
+    ReactDOM.render(
+      <SayHello firstName={true} />,
+      document.getElementById("root")
+    );
+  </script>
+</body>

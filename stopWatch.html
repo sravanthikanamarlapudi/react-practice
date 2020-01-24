@@ -1,0 +1,35 @@
+<div id="root"></div>
+<script
+  src="https://unpkg.com/react@16/umd/react.production.min.js"
+  crossorigin
+></script>
+<script
+  src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"
+  crossorigin
+></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script src="https://unpkg.com/prop-types@15.6/prop-types.min.js"></script>
+<script src="type/babel">
+
+  class StopWatch extends React.Component{
+   state={lapse:0,running :flase}
+  handleRunClick=()=>{
+  this.setState(state=>{
+  if(state.running){
+      clearInterval(this.timer)
+  }
+  else{
+      const startTime=Date.now()-this.state.lapse
+      this.timer=setInterval(()=>{
+      this.setState({
+  lapse:Date.now()-startTime,
+      })
+  })
+  }
+  return{running:!state.running}
+  })
+  }
+  handleClearClick=()=>{
+
+  }
+</script>

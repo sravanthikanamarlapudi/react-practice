@@ -1,0 +1,41 @@
+<div id="root"></div>
+<body>
+  <script
+    src="https://unpkg.com/react@16/umd/react.production.min.js"
+    crossorigin
+  ></script>
+  <script
+    src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"
+    crossorigin
+  ></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <script src="https://unpkg.com/prop-types@15.6/prop-types.min.js"></script>
+  <script type="text/babel">
+    function Message({ message }) {
+      return (
+        <div>{message ? <div>{message}</div> : <div> NO message</div>}</div>
+      );
+    }
+    /*<div>
+          {message
+            ? React.createElement("div", null, message)
+            : React.createElement("div", null, "no Message")}
+        </div>
+      );
+    */
+
+    //return <div>{message}</div>;
+    /*if(!message) {
+        //return <div> no message</div>;
+        return React.createElement("div", null, "No message");
+      }*/
+    //return <div>{message}</div>;
+    // return React.createElement("div", null, "No message");
+
+    ReactDOM.render(
+      <Message message={null} />,
+      document.getElementById("root")
+    );
+  </script>
+</body>
